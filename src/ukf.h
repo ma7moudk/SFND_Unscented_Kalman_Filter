@@ -41,6 +41,15 @@ public:
   ///* Process noise standard deviation yaw acceleration in rad/s^2
   double std_yawdd_;
 
+  //create augmented state covariance
+  MatrixXd P_aug ;
+
+  //create sigma point matrix
+  MatrixXd Xsig_aug ;
+
+  //create augmented mean vector
+  VectorXd x_aug;
+
   ///* Laser measurement noise standard deviation position1 in m
   double std_laspx_;
 
@@ -67,6 +76,16 @@ public:
 
   ///* Sigma point spreading parameter
   double lambda_;
+
+  int n_z_rad;
+  int n_z_las;
+
+  //add measurement noise covariance matrix radar
+  MatrixXd R_rad ;
+
+  //add measurement noise covariance matrix for laser
+  MatrixXd R_las ;
+
 
   ///* NIS values for lidar and radar sensors
   std::list<double> nis_radar_;
