@@ -53,7 +53,12 @@ class Tools {
 	VectorXd CalculateRMSE(const vector<VectorXd> &estimations, const vector<VectorXd> &ground_truth);
 	void savePcd(typename pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, std::string file);
 	pcl::PointCloud<pcl::PointXYZ>::Ptr loadPcd(std::string file);
-	
+
+    /**
+  * A helper method to compute NIS
+  */
+  static double CalculeNIS(const VectorXd &z_diff, const MatrixXd &S_inverse);
+  
 };
 
 #endif /* TOOLS_H_ */

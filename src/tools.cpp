@@ -1,5 +1,4 @@
 #include <iostream>
-#include <random>
 #include "tools.h"
 
 using namespace std;
@@ -140,3 +139,12 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr Tools::loadPcd(std::string file)
   return cloud;
 }
 
+
+double Tools::CalculeNIS(const VectorXd &z_diff, const MatrixXd &S_inverse){
+
+  double epislon = 0;
+  //compute error
+  epislon = z_diff.transpose() * S_inverse * z_diff;
+
+  return epislon;
+}
